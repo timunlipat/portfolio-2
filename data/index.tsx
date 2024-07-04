@@ -1,4 +1,3 @@
-import { FaStrava } from "react-icons/fa6";
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
@@ -29,7 +28,7 @@ export const navItems = [
     {
       id: 3,
       title: "My tech stack",
-      description: "I consistently seek ways to enhance my abilities",
+      description: "Consistently learning and improving",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",

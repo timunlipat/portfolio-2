@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "./ui/TextGenerateEffects";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 lg:pt-36 md:pt-25 sm:pt-15 pt-10">
       <div>
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -39,7 +39,7 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 mt-4 text-sm md:text-lg lg:text-2xl">
-            A passionate self-taught web developer
+            A Self-Taught Full-Stack Web Developer based in Malaysia
           </p>
 
           <a href="/#projects">

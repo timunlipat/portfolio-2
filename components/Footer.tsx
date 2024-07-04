@@ -2,12 +2,16 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/MagicButton";
 import { socialMedia } from "@/data";
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
     return(
-        <footer className="w-full pt-20 pb-10" id="contact">
+        <footer className="w-full pt-5 pb-10" id="contact">
             <div className="w-full absolute left-0 -bottom-72 min-h-96">
-                <img
+                <Image
+                    width={200}
+                    height={200}
                     src="/footer-grid.svg"
                     alt="grid"
                     className="w-full h-full opacity-50"
@@ -29,16 +33,18 @@ const Footer = () => {
                 </a>
             </div>
             <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-                <p className="md:text-base text-small md:font-normal font-light">
+                <p className="lg:text-base lg:font-normal text-xs font-light">
                     Copyright © 2024 Zamil Inc. All rights reserved.
                 </p>
-                <div className="flex items-center md:gap-3 gap-6">
+                <div className="flex items-center lg:gap-7 lg:pt-0 pt-10 gap-7">
                     {socialMedia.map((media) => (
                         <div 
                             key={media.id}
                             className="
-                                w-10
-                                h-10
+                                lg:w-10
+                                lg:h-10
+                                h-8
+                                w-8
                                 cursor-pointer 
                                 flex 
                                 justify-center 
@@ -54,14 +60,14 @@ const Footer = () => {
                                 hover:bg-black
                                 "
                             >
-                            <a href={media.link} target="_blank" rel="noopener noreferrer">
-                                <img
+                            <Link href={media.link} passHref target="_blank" rel="noopener noreferrer">
+                                <Image
                                     src={media.img}
                                     alt={media.img}
-                                    height={25}
-                                    width={25}
+                                    height={23}
+                                    width={23}
                                 />
-                            </a>
+                            </Link>               
                         </div>
                     ))}
                 </div>

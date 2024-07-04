@@ -1,6 +1,7 @@
 import { projects } from "@/data";
 import { PinContainer } from "./ui/ThreeDPin";
 import { FaLocationArrow } from "react-icons/fa6";
+import Image from "next/image";
 
 const RecentProjects = () => {
     return(
@@ -11,30 +12,11 @@ const RecentProjects = () => {
             </h1>
             <div
                 id="projects"
-                className="
-                    flex 
-                    flex-wrap 
-                    items-center 
-                    justify-center 
-                    p-4 
-                    gap-x-24
-                    gap-y-8 
-                    mt-10
-                    "
-                >
+                className="flex flex-wrap items-center justify-center p-4 gap-x-4 gap-y-8 mt-20">
                 {projects.map(({id, title, des, img, link, iconLists}) => (
                     <div 
                         key={id}
-                        className="
-                            sm:h-[41rem]
-                            lg:min-h-[32.5rem]
-                            h-[32rem]
-                            flex
-                            items-center
-                            justify-center
-                            sm:w-[570px]
-                            w-[80vw]
-                        "
+                        className="sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] flex items-center justify-center"
                     >   
                         <PinContainer title={title} href={link}>
                             <div 
@@ -43,22 +25,21 @@ const RecentProjects = () => {
                                     flex 
                                     items-center 
                                     justify-center 
-                                    sm:w-[570px]
-                                    sm:h-[40vh]
+                                    lg:w-[570px]
                                     w-[80vw] 
                                     overflow-hidden 
                                     h-[30vh]
-                                    lg:h-[30vh]
                                     mb-10
                                     "
                                 >
-                                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
-                                    <img src="bg.png" alt="bg-img"/>
+                                <div className="relative w-full h-full overflow-hidden rounded-3xl bg-[#13162d]">
+                                    <Image src="/bg.png" alt="/bg-img" fill/>
                                 </div>
-                                <img
+                                <Image
                                     src={img}
                                     alt={title}
-                                    className="z-10 absolute right-0"
+                                    className="z-10 absolute rounded-lg"
+                                    height={500} width={500}
                                 />
                             </div>
                             <h1 className="pb-4 font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -94,7 +75,7 @@ const RecentProjects = () => {
                                     ))}
                                 </div>
                                 <div className="flex justify-center items-center">
-                                    <p className="flex lg:text-xl md:text-xs text-sm text-purple">Check Live Site</p>
+                                    <p className="flex lg:text-xl md:text-lg sm:text-md text-xs text-purple">Check Live Site</p>
                                     <FaLocationArrow className="ms-3" color="#CBACF9"/>
                                 </div>
                             </div>
