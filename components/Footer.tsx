@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Footer = () => {
     return(
-        <footer className="w-full pt-5 pb-10" id="contact">
+        <footer className="w-full py-20" id="contact">
             <div className="w-full absolute left-0 -bottom-72 min-h-96">
                 <Image
                     width={200}
@@ -32,7 +32,7 @@ const Footer = () => {
                     />
                 </a>
             </div>
-            <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
+            <div className="flex pt-20 lg:flex-row flex-col justify-between items-center">
                 <p className="lg:text-base lg:font-normal text-xs font-light">
                     Copyright © 2024 Zamil Inc. All rights reserved.
                 </p>
