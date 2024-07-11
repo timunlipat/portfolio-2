@@ -76,11 +76,19 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "Milbnb: A Fullstack Airbnb Replicate",
-      des: "Milbnb is a comprehensive fullstack web application inspired by Airbnb, designed to provide users with a seamless experience for booking and listing accommodations. Leveraging modern technologies, Milbnb offers an intuitive interface for users to browse, search, and reserve properties, while enabling hosts to list their spaces, manage bookings, and interact with guests. Built with robust backend infrastructure and a responsive frontend, Milbnb ensures reliability, scalability, and a smooth user experience across all devices.",
+      title: "Milbnb",
+      des: "Milbnb is a full-stack web application inspired by Airbnb, providing a seamless experience for booking and listing accommodations. Users can browse, search, and reserve properties, while hosts can list spaces, manage bookings, and interact with guests. Built with modern technologies, Milbnb offers a reliable, scalable, and responsive interface for all devices.",
       img: "/p1.png",
       iconLists: ["next.svg", "/re.svg",  "/tail.svg", "/ts.svg", "/prisma.png","/mongo.svg"],
       link: "https://milbnb.vercel.app/",
+    },
+    {
+      id: 1,
+      title: "Duomingo",
+      des: "Duomingo is a fullstack web application inspired by Duolingo, designed with a playful and engaging cartoonish theme. Built using Next.js, React, TypeScript, and Drizzle ORM, it offers interactive language lessons with gamification elements to motivate users and enhance the learning experience. The platform features user progress tracking and a responsive design, ensuring an optimal experience on both desktop and mobile devices.",
+      img: "/p2.png",
+      iconLists: ["next.svg", "/re.svg",  "/tail.svg", "/ts.svg", "/drizzle.png"],
+      link: "https://duomingo.vercel.app/",
     },
   ];
   
