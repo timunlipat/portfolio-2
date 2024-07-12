@@ -7,11 +7,11 @@ const RecentProjects = () => {
   return (
     <div className="py-20" id="projects">
       <h1 className="heading">
-        Selection of{' '}
-        <span className="text-purple">recent projects</span>
+        A Selection of{' '}
+        <span className="text-purple">Recent Projects</span>
       </h1>
       <div
-        className="grid lg:grid-cols-2 grid-cols-1 gap-x-[200px] gap-y-[150px] mt-20">
+        className="grid lg:grid-cols-2 grid-cols-1 gap-x-[70px] gap-y-[130px] mt-20">
         {projects.map(({id, title, des, img, link, iconLists}) => (
           <div 
             key={id}
@@ -27,7 +27,8 @@ const RecentProjects = () => {
                   lg:w-[570px]
                   w-[80vw] 
                   overflow-hidden 
-                  h-[350px]
+                  lg:h-[350px]
+                  h-[290px]
                   mb-10
                   "
               >
@@ -38,10 +39,10 @@ const RecentProjects = () => {
                   src={img}
                   alt={title}
                   className="z-10 absolute rounded-lg"
-                  height={550} width={550}
+                  height={540} width={540}
                 />
               </div>
-              <h1 className="pb-4 font-bold lg:text-4xl text-base line-clamp-1">
+              <h1 className="pb-5 font-bold lg:text-3xl text-base">
                 {title}
               </h1>
               <p className="lg:text-lg lg:font-normal font-light text-sm line-clamp-6">

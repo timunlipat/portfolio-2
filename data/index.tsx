@@ -77,7 +77,7 @@ export const navItems = [
     {
       id: 1,
       title: "Milbnb",
-      des: "Milbnb is a full-stack web application inspired by Airbnb, providing a seamless experience for booking and listing accommodations. Users can browse, search, and reserve properties, while hosts can list spaces, manage bookings, and interact with guests. Built with modern technologies, Milbnb offers a reliable, scalable, and responsive interface for all devices.",
+      des: "Milbnb is a fullstack web application inspired by Airbnb, providing a seamless experience for booking and listing accommodations. Users can browse, search, and reserve properties, while hosts can list spaces, manage bookings, and interact with guests. Built with modern technologies, Milbnb offers a reliable, scalable, and responsive interface for all devices.",
       img: "/p1.png",
       iconLists: ["next.svg", "/re.svg",  "/tail.svg", "/ts.svg", "/prisma.png","/mongo.svg"],
       link: "https://milbnb.vercel.app/",
