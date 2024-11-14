@@ -104,10 +104,10 @@ export const navItems = [
       img: "/twit.svg",
       link:"https://x.com/zamilaziz2",
     },
-    // {
-    //   id: 3,
-    //   img: "/strava.svg",
-    //   link:"https://www.strava.com/athletes/112389118"
-    //   ,
-    // },
+    {
+      id: 3,
+      img: "/strava.svg",
+      link:"https://www.strava.com/athletes/112389118"
+      ,
+    },
   ];
