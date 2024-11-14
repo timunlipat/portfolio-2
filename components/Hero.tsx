@@ -39,7 +39,7 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider pt-5 pb-12 text-sm md:text-lg lg:text-xl">
-            A SelfTaught FullStack Web Developer based in Malaysia
+            A Self Taught Full Stack Web Developer based in Malaysia
           </p>
 
           <a href="/#projects">

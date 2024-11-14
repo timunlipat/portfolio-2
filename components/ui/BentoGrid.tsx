@@ -6,7 +6,6 @@ import Lottie from "react-lottie";
 
 import { cn } from "@/utils/cn";
 
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
@@ -42,7 +41,7 @@ export const BentoGridItem = ({
   spareImg,
 }: {
   className?: string;
-  id: number;
+  id?: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   img?: string;
@@ -162,7 +161,6 @@ export const BentoGridItem = ({
               >
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
-
               <MagicButton
                 title={copied ? "Email is Copied!" : "Copy my email address"}
                 icon={<IoCopyOutline />}

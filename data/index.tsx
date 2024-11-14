@@ -3,7 +3,7 @@ export const navItems = [
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
   ];
-  
+
   export const gridItems = [
     {
       id: 1,
@@ -45,7 +45,7 @@ export const navItems = [
       img: "/grid.svg",
       spareImg: "/b4.svg",
     },
-  
+
     {
       id: 5,
       title: (
@@ -72,7 +72,8 @@ export const navItems = [
       spareImg: "",
     },
   ];
-  
+
+
   export const projects = [
     {
       id: 1,
@@ -91,7 +92,7 @@ export const navItems = [
       link: "https://duomingo.vercel.app/",
     },
   ];
-  
+
   export const socialMedia = [
     {
       id: 1,
@@ -103,10 +104,10 @@ export const navItems = [
       img: "/twit.svg",
       link:"https://x.com/zamilaziz2",
     },
-    {
-      id: 3,
-      img: "/strava.svg",
-      link:"https://www.strava.com/athletes/112389118"
-      ,
-    },
+    // {
+    //   id: 3,
+    //   img: "/strava.svg",
+    //   link:"https://www.strava.com/athletes/112389118"
+    //   ,
+    // },
   ];
