@@ -11,7 +11,7 @@ const RecentProjects = () => {
         <span className="text-purple">Recent Projects</span>
       </h1>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[70px] gap-y-[130px] mt-20">
-        {projects.map(({id, title, des, img, link, iconLists}, index) => (
+        {projects.map(({id, title, des, img, imgWidth, imgHeight, link, iconLists, priority}, index) => (
           <div
             key={id}
             className="lg:min-h-[45rem] h-[31rem] flex items-center justify-center"
@@ -24,18 +24,18 @@ const RecentProjects = () => {
                     alt="Background pattern"
                     fill
                     sizes="(max-width: 768px) 80vw, 570px"
-                    priority={index === 0}
+                    priority={priority}
                     className="object-cover"
                   />
                 </div>
                 <Image
                   src={img}
                   alt={`${title} project screenshot`}
-                  className="z-10 absolute rounded-lg object-contain w-auto h-auto"
-                  height={540}
-                  width={540}
+                  className="z-10 absolute rounded-lg object-contain"
+                  width={imgWidth}
+                  height={imgHeight}
                   sizes="(max-width: 768px) 80vw, 540px"
-                  priority={index === 0}
+                  priority={priority}
                 />
               </div>
               <h1 className="pb-5 font-bold lg:text-3xl text-base">
@@ -55,10 +55,10 @@ const RecentProjects = () => {
                       className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-10 h-10 flex justify-center items-center"
                     >
                       <Image
-                        src={icon}
+                        src={icon.src}
                         alt={`Technology icon ${iconIndex + 1}`}
-                        width={24}
-                        height={24}
+                        width={icon.width}
+                        height={icon.height}
                         className="p-2 w-auto h-auto"
                       />
                     </div>

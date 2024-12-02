@@ -95,7 +95,7 @@ export const projects = [
             { src: "/mongo.svg", width: 32, height: 32 }
         ],
         link: "https://milbnb.vercel.app/",
-        priority: true  // Add priority as it's likely above the fold
+        priority: true
     },
     {
         id: 2,
@@ -112,7 +112,7 @@ export const projects = [
             { src: "/drizzle.png", width: 32, height: 32 }
         ],
         link: "https://duomingo.vercel.app/",
-        priority: true  // Add priority as it's likely above the fold
+        priority: true
     },
 ];
 
