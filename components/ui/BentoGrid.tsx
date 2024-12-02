@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Image from "next/image";
-import Lottie from "react-lottie";
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 import { cn } from "@/utils/cn";
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
@@ -56,15 +56,6 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   const handleCopy = () => {
     const text = "zamilaziz92@gmail.com";
     navigator.clipboard.writeText(text);
@@ -93,7 +84,7 @@ export const BentoGridItem = ({
                 className={cn(imgClassName, "object-cover object-center")}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={id === 1} // Priority loading for first image
+                priority={id === 1}
                 quality={85}
               />
             </div>
@@ -172,7 +163,12 @@ export const BentoGridItem = ({
                   copied ? "block" : "block"
                 }`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <Lottie
+                  animationData={animationData}
+                  loop={copied}
+                  autoplay={copied}
+                  style={{ height: 200, width: 400 }}
+                />
               </div>
               <MagicButton
                 title={copied ? "Email is Copied!" : "Copy my email address"}
