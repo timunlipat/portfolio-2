@@ -11,7 +11,7 @@ const RecentProjects = () => {
         <span className="text-purple">Recent Projects</span>
       </h1>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[70px] gap-y-[130px] mt-20">
-        {projects.map(({id, title, des, img, link, iconLists}) => (
+        {projects.map(({id, title, des, img, link, iconLists}, index) => (
           <div
             key={id}
             className="lg:min-h-[45rem] h-[31rem] flex items-center justify-center"
@@ -24,18 +24,18 @@ const RecentProjects = () => {
                     alt="Background pattern"
                     fill
                     sizes="(max-width: 768px) 80vw, 570px"
-                    priority={false}
+                    priority={index === 0}
                     className="object-cover"
                   />
                 </div>
                 <Image
                   src={img}
                   alt={`${title} project screenshot`}
-                  className="z-10 absolute rounded-lg object-contain"
+                  className="z-10 absolute rounded-lg object-contain w-auto h-auto"
                   height={540}
                   width={540}
                   sizes="(max-width: 768px) 80vw, 540px"
-                  priority
+                  priority={index === 0}
                 />
               </div>
               <h1 className="pb-5 font-bold lg:text-3xl text-base">
@@ -46,20 +46,20 @@ const RecentProjects = () => {
               </p>
               <div className="flex items-center justify-between mt-7 mb-3">
                 <div className="flex items-center">
-                  {iconLists.map((icon, index) => (
+                  {iconLists.map((icon, iconIndex) => (
                     <div
-                      key={`${id}-icon-${index}`}
+                      key={`${id}-icon-${iconIndex}`}
                       style={{
-                        transform: `translateX(-${5 * index * 2}px)`
+                        transform: `translateX(-${5 * iconIndex * 2}px)`
                       }}
                       className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-10 h-10 flex justify-center items-center"
                     >
                       <Image
                         src={icon}
-                        alt={`Technology icon ${index + 1}`}
+                        alt={`Technology icon ${iconIndex + 1}`}
                         width={24}
                         height={24}
-                        className="p-2"
+                        className="p-2 w-auto h-auto"
                       />
                     </div>
                   ))}
