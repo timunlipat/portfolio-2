@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-
+import Image from "next/image";
 import Lottie from "react-lottie";
 
 import { cn } from "@/utils/cn";
@@ -30,6 +30,17 @@ export const BentoGrid = ({
   );
 };
 
+interface BentoGridItemProps {
+  className?: string;
+  id?: number;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  img?: string;
+  imgClassName?: string;
+  titleClassName?: string;
+  spareImg?: string;
+}
+
 export const BentoGridItem = ({
   className,
   id,
@@ -39,16 +50,7 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
-}: {
-  className?: string;
-  id?: number;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  img?: string;
-  imgClassName?: string;
-  titleClassName?: string;
-  spareImg?: string;
-}) => {
+}: BentoGridItemProps) => {
   const leftLists = ["React", "NodeJS", "Typescript"];
   const rightLists = ["ExpressJS", "SQL", "NoSQL"];
 
@@ -84,23 +86,35 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
-              src={img}
-              alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={img}
+                alt={img.split('/').pop()?.split('.')[0] || 'Image'}
+                className={cn(imgClassName, "object-cover object-center")}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={id === 1} // Priority loading for first image
+                quality={85}
+              />
+            </div>
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-100"
-            } `}
+          className={`absolute right-0 -bottom-5 ${
+            id === 5 && "w-full opacity-100"
+          }`}
         >
           {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className="object-cover object-center w-full h-full"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={spareImg}
+                alt={spareImg.split('/').pop()?.split('.')[0] || 'Spare Image'}
+                className="object-cover object-center"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={85}
+              />
+            </div>
           )}
         </div>
         {id === 6 && (
@@ -119,9 +133,7 @@ export const BentoGridItem = ({
             {description}
           </div>
 
-          <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-          >
+          <div className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}>
             {title}
           </div>
           {id === 2 && <GridGlobe />}
@@ -131,20 +143,20 @@ export const BentoGridItem = ({
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-5">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
@@ -156,8 +168,9 @@ export const BentoGridItem = ({
           {id === 6 && (
             <div className="mt-5 relative">
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
+                className={`absolute -bottom-5 right-0 ${
+                  copied ? "block" : "block"
+                }`}
               >
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
