@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
@@ -75,7 +75,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const globeRef = useRef<ThreeGlobe | null>(null);
 
-  const defaultProps = {
+  // Move defaultProps to useMemo to prevent unnecessary recreations
+  const defaultProps = useMemo(() => ({
     pointSize: 1,
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
@@ -90,7 +91,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     rings: 1,
     maxRings: 3,
     ...globeConfig,
-  };
+  }), [globeConfig]);
 
   const buildMaterial = useCallback(() => {
     if (!globeRef.current) return;
@@ -143,11 +144,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
   }, [data, defaultProps.pointSize]);
 
   useEffect(() => {
-    if (globeRef.current) {
-      buildData();
-      buildMaterial();
-    }
-  }, [globeRef.current, buildData, buildMaterial]);
+    if (!globeRef.current) return;
+    buildData();
+    buildMaterial();
+  }, [buildData, buildMaterial]);
 
   const startAnimation = useCallback(() => {
     if (!globeRef.current || !globeData) return;
@@ -188,17 +188,17 @@ export function Globe({ globeConfig, data }: WorldProps) {
   }, [globeData, data, defaultProps]);
 
   useEffect(() => {
-    if (globeRef.current && globeData) {
-      globeRef.current
-        .hexPolygonsData(countries.features)
-        .hexPolygonResolution(3)
-        .hexPolygonMargin(0.7)
-        .showAtmosphere(defaultProps.showAtmosphere)
-        .atmosphereColor(defaultProps.atmosphereColor)
-        .atmosphereAltitude(defaultProps.atmosphereAltitude)
-        .hexPolygonColor(() => defaultProps.polygonColor);
-      startAnimation();
-    }
+    if (!globeRef.current || !globeData) return;
+
+    globeRef.current
+      .hexPolygonsData(countries.features)
+      .hexPolygonResolution(3)
+      .hexPolygonMargin(0.7)
+      .showAtmosphere(defaultProps.showAtmosphere)
+      .atmosphereColor(defaultProps.atmosphereColor)
+      .atmosphereAltitude(defaultProps.atmosphereAltitude)
+      .hexPolygonColor(() => defaultProps.polygonColor);
+    startAnimation();
   }, [
     globeData,
     defaultProps.showAtmosphere,
@@ -227,7 +227,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeRef.current, globeData, data.length]);
+  }, [globeData, data.length]);
 
   return (
     <>

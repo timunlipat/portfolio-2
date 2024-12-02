@@ -44,10 +44,8 @@ export const gridItems = [
         className: "lg:col-span-2 md:col-span-3 md:row-span-1",
         imgClassName: "",
         titleClassName: "justify-start",
-        img: "/grid.svg",
-        imgWidth: 800,
-        imgHeight: 600,
-        spareImg: "/b4.svg",
+        img: "",
+        spareImg: "",
     },
     {
         id: 5,
@@ -95,7 +93,7 @@ export const projects = [
             { src: "/mongo.svg", width: 32, height: 32 }
         ],
         link: "https://milbnb.vercel.app/",
-        priority: true
+        priority: false
     },
     {
         id: 2,
@@ -112,7 +110,7 @@ export const projects = [
             { src: "/drizzle.png", width: 32, height: 32 }
         ],
         link: "https://duomingo.vercel.app/",
-        priority: true
+        priority: false
     },
 ];
 
